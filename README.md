@@ -9,16 +9,19 @@
 ## 設定項目
 
  - 実行時間 : 1-2 分程度
+
  - 環境変数 :
    - `DB_ID` : 対象となる RDS / Aurora インスタンスのデータベース ID
-	 - `S3_BUCKET` : 保存先の S3 バケット名
+   - `S3_BUCKET` : 保存先の S3 バケット名
+
  - トリガー : CloudWatch Events で cron 定時実行（毎時 5 分など）
 
 ## 注意点
 
  - Lambda のロールには以下のポリシー（権限）が必要
    - 対象となる Performance Insights メトリクスのフル権限 (*1)
-	 - 対象となる S3 バケットへのアップロード権限（`"s3:PutObject"` など）
+   - 対象となる S3 バケットへのアップロード権限（`"s3:PutObject"` など）
+
  - Performance Insights や S3 バケットの暗号化にデフォルト以外のキーを使っている場合は、Lambda のロールに対象キーを使用する権限も必要
 
 (*1)
