@@ -4,6 +4,8 @@
 ## 内容
 
  - Amazon RDS / Aurora の Performance Insights で記録された Tokenized SQL 分間 TOP 10 を S3 バケットに転記する Python Script です。
+   - `lambda_function.py` : Tokenized SQL 分間 TOP 10 のみ出力
+   - `lambda_function_events.py` : Tokenized SQL 分間 TOP 10 および待機イベント内訳を出力
  - Lambda で毎時実行すると、1 時間前の時間帯の記録を 1 分単位で集計して指定の S3 バケットに保存します。
  - Athena で扱いやすいように `.tsv` で保存します。
 
@@ -39,4 +41,4 @@
 
 ## Qiita に書いた紹介記事
 
- - https://qiita.com/hmatsu47/items/b689db489e75836b0d7d
+ - https://qiita.com/hmatsu47/items/b689db489e75836b0d7d (`lambda_function.py`)
