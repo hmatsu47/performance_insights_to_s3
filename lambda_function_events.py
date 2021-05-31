@@ -1,6 +1,7 @@
 import boto3
 from datetime import date, datetime, timedelta
 import os
+import time
 
 db_id     = os.environ["DB_ID"]
 s3_bucket = os.environ["S3_BUCKET"]
@@ -76,6 +77,7 @@ def pi_fetch(db_id, starttime, metric, periods, groupby, filter):
             GroupBy=groupby,
             Filter=filter
             )
+    time.sleep(0.1)
     return response
 
 def s3_put(bucket, key, body):
